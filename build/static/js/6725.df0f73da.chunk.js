@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkeboard=self.webpackChunkeboard||[]).push([[6725],{36725:function(e,n,a){a.r(n);a(72791);var r=a(57689),t=a(80184);n.default=function(){return(0,t.jsx)(r.Z5,{children:(0,t.jsx)(r.AW,{path:"*",element:(0,t.jsx)(r.Fg,{to:"mail/inbox",replace:!0})})})}}}]);
+//# sourceMappingURL=6725.df0f73da.chunk.js.map

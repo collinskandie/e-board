@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkeboard=self.webpackChunkeboard||[]).push([[1748],{91748:function(e,t,r){r.r(t);r(72791);var n=r(57689),s=r(80184);t.default=function(){return(0,s.jsx)(n.Z5,{children:(0,s.jsx)(n.AW,{path:"*",element:(0,s.jsx)(n.Fg,{to:"product-list",replace:!0})})})}}}]);
+//# sourceMappingURL=1748.ef21b11c.chunk.js.map

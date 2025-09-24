@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkeboard=self.webpackChunkeboard||[]).push([[9071],{69071:function(e,a,r){r.r(a);r(72791);var u=r(19456),n=r(57689),s=r(80184);a.default=function(){var e=(0,n.UO)();return(0,s.jsx)(u.Z,{mode:"EDIT",param:e})}}}]);
+//# sourceMappingURL=9071.c2f452f5.chunk.js.map

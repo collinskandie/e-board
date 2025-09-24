@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkeboard=self.webpackChunkeboard||[]).push([[8154],{48154:function(e,s,a){a.r(s);a(72791);var n=a(80184);s.default=function(e){var s=e.name,a=e.desc;return(0,n.jsxs)("div",{className:"mb-3",children:[(0,n.jsxs)("span",{className:"font-weight-bold text-dark",children:[s,":"]}),(0,n.jsxs)("span",{className:"text-gray-light",children:[" ",a]})]})}}}]);
+//# sourceMappingURL=8154.541b85ff.chunk.js.map
