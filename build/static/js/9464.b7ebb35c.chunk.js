@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkeboard=self.webpackChunkeboard||[]).push([[9464],{19464:function(e,a,r){r.r(a);r(72791);var t=r(57689),n=r(80184);a.default=function(){return(0,n.jsx)(t.Z5,{children:(0,n.jsx)(t.AW,{path:"*",element:(0,n.jsx)(t.Fg,{to:"apex-charts",replace:!0})})})}}}]);
-//# sourceMappingURL=9464.b7ebb35c.chunk.js.map
