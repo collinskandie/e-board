@@ -1,0 +1,236 @@
+[
+  {
+    "id": 1,
+    "name": "Eileen Horton",
+    "avatar": "/img/avatars/thumb-1.jpg",
+    "unread": 3,
+    "time": "4:16PM",
+    "msg": [
+      {
+        "avatar": "/img/avatars/thumb-1.jpg",
+        "text": "Good afternoon, have you reviewed the draft agenda for tomorrow’s board meeting?",
+        "from": "opposite",
+        "time": "",
+        "msgType": "text"
+      },
+      {
+        "avatar": "",
+        "text": "Hello Eileen, yes, I had a quick look.",
+        "from": "me",
+        "time": "",
+        "msgType": "text"
+      },
+      {
+        "avatar": "",
+        "text": "",
+        "from": "",
+        "time": "7:57PM",
+        "msgType": "date"
+      },
+      {
+        "avatar": "/img/avatars/thumb-1.jpg",
+        "text": "Please note we’ve added a new agenda item on compliance reporting.",
+        "from": "opposite",
+        "time": "",
+        "msgType": "text"
+      },
+      {
+        "avatar": "/img/avatars/thumb-1.jpg",
+        "text": "The supporting documents are uploaded in the library.",
+        "from": "opposite",
+        "time": "",
+        "msgType": "text"
+      },
+      {
+        "avatar": "/img/avatars/thumb-1.jpg",
+        "text": "Kindly review before the session.",
+        "from": "opposite",
+        "time": "",
+        "msgType": "text"
+      },
+      {
+        "avatar": "",
+        "text": "Noted. I’ll review them this evening.",
+        "from": "me",
+        "time": "",
+        "msgType": "text"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Terrance Moreno",
+    "avatar": "/img/avatars/thumb-2.jpg",
+    "time": "18/04/2020",
+    "unread": 2,
+    "msg": [
+      {
+        "avatar": "",
+        "text": "",
+        "from": "",
+        "time": "7:57PM",
+        "msgType": "date"
+      },
+      {
+        "avatar": "/img/avatars/thumb-2.jpg",
+        "text": "Hello, Jason. ",
+        "from": "opposite",
+        "time": "",
+        "msgType": "text"
+      },
+      {
+        "avatar": "",
+        "text": "Good evening, Terrance. How are you?",
+        "from": "me",
+        "time": "",
+        "msgType": "text"
+      },
+      {
+        "avatar": "/img/avatars/thumb-2.jpg",
+        "text": "Do you recall our discussion on the budget approval?",
+        "from": "opposite",
+        "time": "",
+        "msgType": "text"
+      },
+      {
+        "avatar": "",
+        "text": "Yes, it’s on the agenda tomorrow.",
+        "from": "me",
+        "time": "",
+        "msgType": "text"
+      },
+      {
+        "avatar": "/img/avatars/thumb-2.jpg",
+        "text": "Great. I’ve uploaded the finalized financial report.",
+        "from": "opposite",
+        "time": "",
+        "msgType": "text"
+      },
+      {
+        "avatar": "",
+        "text": "Board-Financials.pdf",
+        "from": "opposite",
+        "time": "",
+        "msgType": "file"
+      },
+      {
+        "avatar": "",
+        "text": "Thanks, I’ll review before the vote.",
+        "from": "me",
+        "time": "",
+        "msgType": "text"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Ron Vargas",
+    "avatar": "/img/avatars/thumb-3.jpg",
+    "time": "17/04/2020",
+    "unread": 5,
+    "msg": [
+      {
+        "avatar": "",
+        "text": "",
+        "from": "",
+        "time": "7:57PM",
+        "msgType": "date"
+      },
+      {
+        "avatar": "/img/avatars/thumb-3.jpg",
+        "text": "Reminder: the Governance Committee minutes from last quarter are now available.",
+        "from": "opposite",
+        "time": "",
+        "msgType": "text"
+      },
+      {
+        "avatar": "",
+        "text": "Thank you, Ron. Where can I access them?",
+        "from": "me",
+        "time": "",
+        "msgType": "text"
+      },
+      {
+        "avatar": "/img/avatars/thumb-3.jpg",
+        "text": "They are uploaded under ‘Meeting Records’ in the portal.",
+        "from": "opposite",
+        "time": "",
+        "msgType": "text"
+      },
+      {
+        "avatar": "",
+        "text": "Perfect, I’ll download and review ahead of tomorrow.",
+        "from": "me",
+        "time": "",
+        "msgType": "text"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Luke Cook",
+    "avatar": "/img/avatars/thumb-4.jpg",
+    "time": "14/04/2020",
+    "unread": 0,
+    "msg": [
+      {
+        "avatar": "",
+        "text": "",
+        "from": "",
+        "time": "8:08PM",
+        "msgType": "date"
+      },
+      {
+        "avatar": "/img/avatars/thumb-4.jpg",
+        "text": "Board pack has been circulated for review.",
+        "from": "opposite",
+        "time": "",
+        "msgType": "text"
+      },
+      {
+        "avatar": "",
+        "text": "Thanks, Luke. I’ll check it before the meeting.",
+        "from": "me",
+        "time": "",
+        "msgType": "text"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Tara Fletcher",
+    "avatar": "/img/avatars/thumb-7.jpg",
+    "time": "21/03/2020",
+    "unread": 0,
+    "msg": [
+      {
+        "avatar": "/img/avatars/thumb-7.jpg",
+        "text": "I’ve just added my comments to the sustainability report draft.",
+        "from": "opposite",
+        "time": "",
+        "msgType": "text"
+      },
+      {
+        "avatar": "",
+        "text": "Excellent. I’ll consolidate them before final submission.",
+        "from": "me",
+        "time": "",
+        "msgType": "text"
+      },
+      {
+        "avatar": "/img/avatars/thumb-7.jpg",
+        "text": "Also flagged a few areas that need legal review.",
+        "from": "opposite",
+        "time": "",
+        "msgType": "text"
+      },
+      {
+        "avatar": "",
+        "text": "Noted. I’ll forward to the legal team.",
+        "from": "me",
+        "time": "",
+        "msgType": "text"
+      }
+    ]
+  }
+]

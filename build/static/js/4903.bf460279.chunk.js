@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkmtrh_eboard=self.webpackChunkmtrh_eboard||[]).push([[4903],{34289:function(e,t,r){r.r(t);r(72791);var a=r(57689),n=r(80184);t.default=function(){return(0,n.jsx)(a.Z5,{children:(0,n.jsx)(a.AW,{path:"*",element:(0,n.jsx)(a.Fg,{to:"auto-complete",replace:!0})})})}}}]);
+//# sourceMappingURL=4903.bf460279.chunk.js.map
