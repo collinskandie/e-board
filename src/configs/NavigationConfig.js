@@ -248,7 +248,7 @@ const appsNavTree = [{
       submenu: [
         {
           key: 'apps-project-list',
-          path: `${APP_PREFIX_PATH}/apps/project/list`,
+          path: `${APP_PREFIX_PATH}/apps/meetings/list`,
           title: 'sidenav.apps.project.list',
           icon: '',
           breadcrumb: false,

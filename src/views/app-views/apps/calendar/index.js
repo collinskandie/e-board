@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Calendar, Badge, Card, Row, Col, Modal, Form, Input, Select, TimePicker, Button, Tooltip } from 'antd';
-import CalendarData from './CalendarData';
 import dayjs from 'dayjs';
-import { CalendarOutlined, DeleteOutlined } from '@ant-design/icons';
+import { CalendarOutlined, DeleteOutlined, EyeOutlined } from '@ant-design/icons';
+import { useContext } from "react";
+import { MeetingContext } from "views/app-views/apps/MeetingContext";
+import { useNavigate } from "react-router-dom";
+
+import { APP_PREFIX_PATH } from 'configs/AppConfig'
 
 const { Option } = Select;
 
@@ -31,43 +35,66 @@ const initialFormValues = {
 
 const dateFormat = 'DD MMMM'
 
-const AgendaList = props => {
-	const { list, onDelete } = props
-	return (
-		list.map(list => (
-			<div key={list.date} className="calendar-list">
-				<h4>
-					<CalendarOutlined />
-					<span className="ml-2">{list.date}</span>
-				</h4>
-				{
-					list.event.map((eventItem, i) => (
-						<div key={`${eventItem.title}-${i}`} className="calendar-list-item">
-							<div className="d-flex">
-								<Badge className="mr-2" color={eventItem.bullet} />
-								<div>
-									<h5 className="mb-1">{eventItem.title}</h5>
-									<span className="text-muted">{eventItem.start} - {eventItem.end}</span>
-								</div>
-							</div>
-							<div className="calendar-list-item-delete">
-								<Tooltip title="Delete event">
-									<DeleteOutlined onClick={() => onDelete(list.date, i)} />
-								</Tooltip>
-							</div>
-						</div>
-					))
-				}
+const AgendaList = ({ list = [], onDelete }) => {
+	const navigate = useNavigate();
+	if (!Array.isArray(list)) return null;
+
+	return list.map(meeting => (
+		<div key={meeting.id} className="calendar-list">
+			<h4>
+				<CalendarOutlined />
+				<span className="ml-2">{meeting.date}</span>
+			</h4>
+
+			<div className="calendar-list-item">
+				<div className="d-flex">
+					<Badge className="mr-2" color={meeting.statusColor} />
+					<div>
+						<h5 className="mb-1">{meeting.title}</h5>
+						<span className="text-muted">
+							{meeting.startTime} - {meeting.endTime}
+						</span>
+					</div>
+
+				</div>
+
+				<div style={{ marginTop: 8 }}>
+					<strong>Agendas:</strong>
+					<ul>
+						{meeting.agendas.map((a, i) => (
+							<li key={i}>{a}</li>
+						))}
+					</ul>
+				</div>
+
+				<div className="calendar-list-item-delete">
+					<Tooltip title="View details">
+						<Button
+							type="link"
+							icon={<EyeOutlined />}
+							onClick={() => navigate(`${APP_PREFIX_PATH}/apps/meetings/details/${meeting.id}`)}
+						>
+							View
+						</Button>
+					</Tooltip>
+					<Tooltip title="Delete meeting">
+						<DeleteOutlined onClick={() => onDelete(meeting.id)} />
+					</Tooltip>
+				</div>
 			</div>
-		))
-	)
-}
+		</div>
+	));
+};
+
 
 const EventModal = ({ open, addEvent, cancel }) => {
+
 	const [form] = Form.useForm();
 	const [meetingType, setMeetingType] = useState("physical");
 	const [agendas, setAgendas] = useState([]);
 	const [agendaInput, setAgendaInput] = useState("");
+
+
 
 	const onSubmit = values => {
 		const finalValues = {
@@ -206,78 +233,63 @@ const EventModal = ({ open, addEvent, cancel }) => {
 		</Modal>
 	);
 };
-
-
 const CalendarApp = () => {
-	const [calendarList, setCalendarList] = useState(CalendarData);
 	const [modalVisible, setModalVisible] = useState(false);
 	const [selectedDate, setSelectedDate] = useState(null);
+	const { meetings, addMeeting, deleteMeeting } = useContext(MeetingContext);
 
-	const cellRender = value => {
-		const listData = getListData(value.format((dateFormat)));
+	const getListData = (value) => {
+		const dateStr = dayjs(value).format(dateFormat);
+		const dayMeetings = meetings.filter(d => d.date === dateStr); // <-- always array
+		return dayMeetings;
+	};
+
+
+	const onAddEvent = (values) => {
+		const data = {
+			id: Date.now(),
+			date: selectedDate,   // add selected date here
+			title: values.title || "Untitled Event",
+			statusColor: values.bullet,
+			startTime: values.start.format("HH:mm A"),
+			endTime: values.end.format("HH:mm A"),
+			type: values.meetingType,
+			agendas: values.agendas || [],
+			participants: values.participants || [],
+			meetingLink: values.meetingLink || null,
+		};
+		addMeeting(data);
+		setModalVisible(false);
+	};
+
+
+	const onDeleteEvent = (date, index) => {
+		deleteMeeting(date, index);
+	};
+
+	const cellRender = (value) => {
+
+		const listData = getListData(value);
+
 		return (
 			<ul className="calendar-event">
 				{listData.map((item, i) => (
-					<li key={`${item.title}-${i}`}>
-						<Badge color={item.bullet} text={item.title} />
+					<li key={`${item.id}-${i}`}>
+						<Badge
+							color={item.statusColor}
+							text={`${item.title} (${item.startTime} - ${item.endTime})`}
+						/>
 					</li>
 				))}
 			</ul>
 		);
-	}
+	};
 
-	const getListData = (value) => {
-		let listData = [];
-		calendarList.forEach(elm => {
-			if (elm.date === value) {
-				listData = elm.event
-			}
-		})
-		return listData;
-	}
 
-	const onSelect = value => {
-		const selectedDate = value.format((dateFormat))
+	const onSelect = (value) => {
+		setSelectedDate(value.format(dateFormat));
 		setModalVisible(true);
-		setSelectedDate(selectedDate)
-	}
-
-	const onDeleteEvent = (date, index) => {
-		const data = calendarList.map(calendarList => {
-			if (calendarList.date === date) {
-				calendarList.event = calendarList.event.filter((_, i) => i !== index)
-			}
-			return calendarList
-		}).filter(elm => elm.event.length !== 0)
-		setCalendarList(data)
-	}
-
-	const onAddEvent = values => {
-		const data = [{
-			title: values.title ? values.title : 'Untitled Event',
-			bullet: values.bullet,
-			start: values.start.format(('HH:mm A')),
-			end: values.end.format(('HH:mm A')),
-		}]
-		const newCalendarArr = calendarList
-		const isExistingDate = newCalendarArr.find(x => x.date === selectedDate)
-		if (isExistingDate) {
-			for (let elm of newCalendarArr) {
-				if (elm.date === selectedDate) {
-					elm.event = [...elm.event, ...data]
-				}
-			}
-		} else {
-			newCalendarArr.push({ date: selectedDate, event: data })
-		}
-		const sortedNewCalendarArr = newCalendarArr.sort((a, b) => dayjs(a.date) - dayjs(b.date))
-		setModalVisible(false)
-		setCalendarList(sortedNewCalendarArr)
-	}
-
-	const onAddEventCancel = () => {
-		setModalVisible(false)
-	}
+	};
 
 	return (
 		<Card className="calendar mb-0">
@@ -285,13 +297,14 @@ const CalendarApp = () => {
 				<Col xs={24} sm={24} md={9} lg={6}>
 					<h2 className="mb-4">Agenda</h2>
 					<AgendaList
-						list={calendarList}
-						onDelete={onDeleteEvent}
+						list={meetings}
+						onDelete={deleteMeeting}
 					/>
+
 				</Col>
 				<Col xs={24} sm={24} md={15} lg={18}>
 					<Calendar
-						onSelect={val => onSelect(val)}
+						onSelect={onSelect}
 						dateCellRender={cellRender}
 					/>
 				</Col>
@@ -299,11 +312,11 @@ const CalendarApp = () => {
 			<EventModal
 				open={modalVisible}
 				addEvent={onAddEvent}
-				cancel={onAddEventCancel}
+				cancel={() => setModalVisible(false)}
 			/>
 		</Card>
-	)
-}
+	);
+};
 
-export default CalendarApp
+export default CalendarApp;
 

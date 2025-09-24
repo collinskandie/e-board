@@ -1,5 +1,6 @@
 import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
+// import { MeetingProvider } from "views/app-views/apps/MeetingContext";
 
 const Apps = () => (
 	<Routes>
